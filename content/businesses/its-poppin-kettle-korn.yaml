@@ -5,12 +5,16 @@ category: physical
 badges:
   - lightning
 description: |
-  Gourmet kettle corn.
-website: https://itspoppingourmetkettlekorn.com
+  CLTs Best Gourmet Kettle Korn
+website: "https://www.itspoppingourmetkettlekorn.com/"
+btcmap_url: "https://btcmap.org/merchant/38776"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/its-poppin-kettle-korn.jpg
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

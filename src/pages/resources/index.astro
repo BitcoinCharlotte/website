@@ -4,165 +4,56 @@ import fs from 'node:fs';
 import path from 'node:path';
 import yaml from 'js-yaml';
 
-const resDir = path.join(process.cwd(), 'content/resources');
-const resFiles = fs.readdirSync(resDir).filter(f => f.endsWith('.yaml'));
-const allResources = resFiles.map(f => {
-  const raw = fs.readFileSync(path.join(resDir, f), 'utf-8');
-  return yaml.load(raw);
-});
+const dirPath = path.join(process.cwd(), 'content', 'resources');
+const resources = fs.readdirSync(dirPath)
+  .filter((f: string) => f.endsWith('.yaml'))
+  .map((f: string) => yaml.load(fs.readFileSync(path.join(dirPath, f), 'utf-8')) as any);
 
-// Find featured
-const featured = allResources.find(r => r.featured === true);
-
-// Group by category or type
-const grouped = {};
-for (const r of allResources) {
-  const cat = r.category || r.type || 'other';
+const featured = resources.find((r: any) => r.featured);
+const grouped: Record<string, any[]> = {};
+resources.filter((r: any) => !r.featured).forEach((r: any) => {
+  const cat = r.category || 'other';
   if (!grouped[cat]) grouped[cat] = [];
   grouped[cat].push(r);
-}
-
-// Sort categories
-const categoryOrder = ['introductions', 'book', 'article', 'video', 'podcast', 'course', 'wallet', 'hardware', 'exchange', 'tool', 'community', 'other'];
-const sortedCategories = Object.keys(grouped).sort((a, b) => {
-  const ai = categoryOrder.indexOf(a);
-  const bi = categoryOrder.indexOf(b);
-  return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
 });
 
-const categoryLabels: Record<string, string> = {
-  introductions: '🌱 Introductions',
-  book: '📚 Books',
-  article: '📝 Articles',
-  video: '🎬 Videos',
-  podcast: '🎧 Podcasts',
-  course: '🎓 Courses',
-  wallet: '👛 Wallets',
-  hardware: '🔐 Hardware Wallets',
-  exchange: '💱 Exchanges',
-  tool: '🛠️ Tools',
-  community: '🤝 Community',
-  other: '📦 Other',
-};
+function catLabel(cat: string) {
+  return cat.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase());
+}
 ---
+<Base title="Resources — Bitcoin Charlotte">
 
-<Base title="Bitcoin Resources | Bitcoin Charlotte">
-  <section class="section">
-    <div class="container">
-      <h1>Bitcoin Resources</h1>
-      <p class="subtitle">Curated resources to help you learn about Bitcoin, from beginner to advanced.</p>
+  <h2 class="btc-section-title">Resources</h2>
+  <p style="margin-bottom:24px; color:#5a5a7a;">Curated Bitcoin resources — wallets, guides, books, podcasts, and more.</p>
 
-      {featured && (
-        <div class="featured-resource">
-          <span class="featured-label">⭐ Featured Resource</span>
-          <h2>{featured.title}</h2>
-          <p>{featured.description?.trim()}</p>
-          {featured.url && (
-            <a href={featured.url} class="btn btn-primary" target="_blank" rel="noopener">Check it out →</a>
-          )}
-        </div>
-      )}
-
-      <nav class="category-nav">
-        {sortedCategories.map(cat => (
-          <a href={`#${cat}`} class="cat-link">{categoryLabels[cat] || cat}</a>
-        ))}
-      </nav>
-
-      {sortedCategories.map(cat => (
-        <section id={cat} class="category-section">
-          <h2>{categoryLabels[cat] || cat}</h2>
-          <div class="resource-grid">
-            {grouped[cat].map(r => (
-              <div class="resource-card">
-                <div class="resource-header">
-                  <h3>{r.title}</h3>
-                  <span class={`type-badge type-${r.type}`}>{r.type}</span>
-                </div>
-                {r.author && <p class="resource-author">by {r.author}</p>}
-                {r.description && <p class="resource-desc">{r.description.trim()}</p>}
-                {r.difficulty && <span class={`difficulty difficulty-${r.difficulty}`}>{r.difficulty}</span>}
-                {r.url && (
-                  <a href={r.url} class="resource-link" target="_blank" rel="noopener">Visit →</a>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+  <!-- Featured -->
+  {featured && (
+    <div class="btc-reward" style="margin-bottom:36px;">
+      <p class="btc-reward-label">Featured Resource</p>
+      <p class="btc-reward-amount" style="font-size:clamp(28px,4vw,42px);">{featured.title}</p>
+      <p class="btc-reward-desc">{featured.description}</p>
+      <a href={featured.url} class="btc-btn" style="margin-top:16px;">
+        Read Now
+      </a>
     </div>
-  </section>
+  )}
+
+  {Object.entries(grouped).sort(([a],[b]) => a.localeCompare(b)).map(([cat, items]) => (
+    <div style="margin-bottom:32px;">
+      <h3 class="btc-section-title" style="font-size:22px;">{catLabel(cat)}</h3>
+      <ul class="btc-resources">
+        {items.map((r: any) => (
+          <li>
+            <p>
+              <a href={r.url} target="_blank" rel="noopener noreferrer">{r.title}</a>
+              {r.type && <span class="btc-badge btc-badge-light" style="margin-left:8px;">{r.type}</span>}
+            </p>
+            {r.author && <p class="btc-res-sub">by {r.author}</p>}
+            {r.description && <p class="btc-res-sub">{r.description}</p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+
 </Base>
-
-<style>
-  .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-  .section { padding: 3rem 1rem; }
-  h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
-  .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 2rem; }
-
-  .featured-resource {
-    background: linear-gradient(135deg, #fff8ef, #fff3e0);
-    border: 2px solid #f7931a;
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-  }
-  .featured-label { font-size: 0.85rem; font-weight: 700; color: #f7931a; text-transform: uppercase; }
-  .featured-resource h2 { margin: 0.5rem 0; }
-  .btn { display: inline-block; padding: 0.6rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 600; margin-top: 0.5rem; }
-  .btn-primary { background: #f7931a; color: #fff; }
-
-  .category-nav {
-    display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;
-    padding: 1rem 0; border-bottom: 1px solid #e0e0e0;
-  }
-  .cat-link {
-    font-size: 0.85rem; padding: 0.3rem 0.75rem; background: #f5f5f5;
-    border-radius: 999px; text-decoration: none; color: #333;
-  }
-  .cat-link:hover { background: #fff3e0; color: #f7931a; }
-
-  .category-section { margin-bottom: 3rem; }
-  .category-section h2 { font-size: 1.5rem; border-bottom: 2px solid #f7931a; padding-bottom: 0.5rem; margin-bottom: 1rem; }
-
-  .resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-  }
-  .resource-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 1.25rem;
-    background: #fff;
-  }
-  .resource-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
-  .resource-card h3 { margin: 0; font-size: 1rem; }
-  .type-badge {
-    font-size: 0.7rem; padding: 0.15rem 0.5rem; border-radius: 999px;
-    font-weight: 600; text-transform: uppercase; white-space: nowrap;
-    background: #f0f0f0; color: #555;
-  }
-  .type-wallet { background: #e3f2fd; color: #1565c0; }
-  .type-book { background: #fce4ec; color: #c62828; }
-  .type-video { background: #f3e5f5; color: #7b1fa2; }
-  .type-podcast { background: #e8f5e9; color: #2e7d32; }
-  .type-hardware { background: #fff3e0; color: #e65100; }
-  .type-exchange { background: #e0f7fa; color: #00695c; }
-  .type-tool { background: #efebe9; color: #4e342e; }
-  .type-community { background: #fff9c4; color: #f57f17; }
-  .type-course { background: #e8eaf6; color: #283593; }
-  .type-article { background: #f5f5f5; color: #333; }
-
-  .resource-author { font-size: 0.85rem; color: #888; margin: 0.25rem 0; }
-  .resource-desc { font-size: 0.9rem; color: #555; margin: 0.5rem 0; line-height: 1.5; }
-  .difficulty { font-size: 0.75rem; padding: 0.15rem 0.5rem; border-radius: 999px; margin-right: 0.5rem; }
-  .difficulty-beginner { background: #e8f5e9; color: #2e7d32; }
-  .difficulty-intermediate { background: #fff3e0; color: #e65100; }
-  .difficulty-advanced { background: #fce4ec; color: #c62828; }
-  .resource-link {
-    display: inline-block; margin-top: 0.5rem; font-size: 0.9rem;
-    color: #f7931a; text-decoration: none; font-weight: 600;
-  }
-  .resource-link:hover { text-decoration: underline; }
-</style>

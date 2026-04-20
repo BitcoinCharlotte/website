@@ -1,16 +1,20 @@
-name: Two Moons Salon
+name: "Two Moons Salon"
 slug: two-moons-salon
 status: active
 category: physical
 badges:
   - lightning
 description: |
-  Hair and extensions salon in South Park.
-website: https://www.vagaro.com/twomoonssalon
+  Full service hair and extensions salon in South Park.
+website: "https://mysite.vagaro.com/twomoonssalondiana"
+btcmap_url: "https://btcmap.org/merchant/38788"
 location:
   neighborhood: South Park
+logo: /images/businesses/two-moons-salon.png
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

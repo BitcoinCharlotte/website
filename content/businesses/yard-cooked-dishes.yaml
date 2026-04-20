@@ -1,4 +1,4 @@
-name: Yard Cooked Dishes
+name: "Yard Cooked Dishes"
 slug: yard-cooked-dishes
 status: active
 category: physical
@@ -6,12 +6,17 @@ badges:
   - holds-bitcoin
   - lightning
 description: |
-  Jamaican food. Started accepting Bitcoin on 1/19/2026.
-website: https://yardcookeddishes.com
+  Homemade Jamaican Dishes
+website: "https://www.yardcookeddishes.com/"
+btcmap_url: "https://btcmap.org/merchant/33974"
+onboarded_date: "2026-01-19"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/yard-cooked-dishes.webp
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

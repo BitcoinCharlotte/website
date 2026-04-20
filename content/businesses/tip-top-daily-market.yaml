@@ -1,4 +1,4 @@
-name: Tip Top Daily Market
+name: "Tip Top Daily Market"
 slug: tip-top-daily-market
 status: active
 category: physical
@@ -6,12 +6,15 @@ badges:
   - holds-bitcoin
   - lightning
 description: |
-  Beer, wine, and grocery store in NoDa.
-website: https://tiptop.market
+  Beer Bar, Wine Shop, Snack Place, Grocery Store in the Heart of NoDa.
+website: "https://tiptop.market/"
 location:
   neighborhood: NoDa
+logo: /images/businesses/tip-top-daily-market.png
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

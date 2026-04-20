@@ -1,4 +1,4 @@
-name: Johnny Dollars
+name: "Johnny Dollars"
 slug: johnny-dollars
 status: active
 category: physical
@@ -6,12 +6,16 @@ badges:
   - holds-bitcoin
   - lightning
 description: |
-  Dive bar. Started accepting Bitcoin on 6/13/2025.
-website: https://www.facebook.com/johnnydollarsclt
+  Charlotte's dive bar gem with cheap drinks, pool, live music, and a chill patio
+website: "https://www.facebook.com/profile.php?id=100063828811605"
+onboarded_date: "2025-06-13"
 location:
-  neighborhood: Charlotte
+  neighborhood: South End
+logo: /images/businesses/johnny-dollars.png
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

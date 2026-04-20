@@ -1,116 +1,20 @@
 ---
 interface Props {
   title: string;
-  slug: string;
-  schedule?: string;
-  location?: string;
-  description?: string;
+  schedule?: { rule?: string; time?: string; frequency?: string };
+  location?: { name?: string; neighborhood?: string; address?: string };
+  description: string;
   type?: string;
 }
-
-const { title, slug, schedule, location, description = '', type } = Astro.props;
-
-const preview = description.length > 140 ? description.slice(0, 140).trimEnd() + '…' : description;
+const { title, schedule, location, description, type } = Astro.props;
+const truncated = description && description.length > 140 ? description.slice(0, 140).trim() + '…' : description;
+const scheduleStr = schedule?.rule ? `${schedule.rule}${schedule.time ? ' @ ' + schedule.time : ''}` : '';
+const locationStr = location?.name || '';
 ---
-
-<article class="card event-card">
-  <div class="event-header">
-    {type && <span class="event-type">{type}</span>}
-    <a href={`/events/${slug}`} class="event-link">
-      <h3 class="event-title">{title}</h3>
-    </a>
-  </div>
-
-  {schedule && (
-    <p class="event-schedule">
-      🗓️ {schedule}
-    </p>
-  )}
-
-  {location && (
-    <p class="event-location">
-      📍 {location}
-    </p>
-  )}
-
-  {preview && <p class="event-desc">{preview}</p>}
-
-  <a href={`/events/${slug}`} class="event-more">View Details →</a>
-</article>
-
-<style>
-  .event-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .event-header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .event-type {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.15rem 0.6rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-radius: 999px;
-    background: rgba(65, 68, 159, 0.25);
-    color: #8b8eff;
-  }
-
-  .event-link {
-    text-decoration: none;
-  }
-
-  .event-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.35rem;
-    letter-spacing: 0.02em;
-    color: #fff;
-    margin: 0;
-    transition: color 0.2s ease;
-  }
-
-  .event-link:hover .event-title {
-    color: #f7931a;
-  }
-
-  .event-schedule {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-  }
-
-  .event-location {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-  }
-
-  .event-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    margin: 0.25rem 0 0;
-  }
-
-  .event-more {
-    display: inline-block;
-    margin-top: auto;
-    padding-top: 0.5rem;
-    font-size: 0.85rem;
-    color: #f7931a;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-
-  .event-more:hover {
-    opacity: 0.8;
-  }
-</style>
+<div class="btc-card">
+  <h3>{title}</h3>
+  {type && <span class="btc-badge btc-badge-purple" style="margin-bottom:8px;">{type}</span>}
+  {scheduleStr && <p style="margin:6px 0 4px 0;">📅 {scheduleStr}</p>}
+  {locationStr && <p style="margin:0 0 6px 0;">📍 {locationStr}{location?.neighborhood ? `, ${location.neighborhood}` : ''}</p>}
+  {truncated && <p>{truncated}</p>}
+</div>

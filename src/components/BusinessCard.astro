@@ -2,120 +2,31 @@
 interface Props {
   name: string;
   slug: string;
-  description?: string;
+  description: string;
   badges?: string[];
   website?: string;
-  location?: string;
+  location?: { neighborhood?: string; address?: string; name?: string };
   hodlsBitcoin?: boolean;
+  logo?: string;
 }
-
-const { name, slug, description = '', badges = [], website, location, hodlsBitcoin = false } = Astro.props;
-
-const truncated = description.length > 120 ? description.slice(0, 120).trimEnd() + '…' : description;
+const { name, slug, description, badges = [], location, logo } = Astro.props;
+const truncated = description && description.length > 120 ? description.slice(0, 120).trim() + '…' : description;
+const neighborhood = location?.neighborhood;
 ---
-
-<article class="card business-card">
-  <a href={`/businesses/${slug}`} class="card-link">
-    <h3 class="business-name">{name}</h3>
-  </a>
-
-  {location && <p class="business-location">📍 {location}</p>}
-
-  {truncated && <p class="business-desc">{truncated}</p>}
-
-  <div class="badges">
-    {hodlsBitcoin && <span class="badge badge-bitcoin">Holds Bitcoin</span>}
-    {badges.map((badge) => (
-      <span class:list={['badge', { 'badge-lightning': badge.toLowerCase().includes('lightning') }]}>
-        {badge}
-      </span>
-    ))}
-  </div>
-
-  {website && (
-    <a href={website} class="business-website" target="_blank" rel="noopener noreferrer">
-      Visit Website ↗
-    </a>
+<a href={`/businesses/${slug}`} class="btc-card btc-business-card" style="text-decoration:none; display:flex; gap:14px; align-items:flex-start;">
+  {logo && (
+    <img src={logo} alt={name} width="48" height="48" style="border-radius:6px; object-fit:cover; flex-shrink:0;" loading="lazy" />
   )}
-</article>
-
-<style>
-  .business-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .card-link {
-    text-decoration: none;
-  }
-
-  .business-name {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.35rem;
-    letter-spacing: 0.02em;
-    color: #fff;
-    margin: 0;
-    transition: color 0.2s ease;
-  }
-
-  .card-link:hover .business-name {
-    color: #f7931a;
-  }
-
-  .business-location {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0;
-  }
-
-  .business-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    margin: 0.25rem 0 0;
-  }
-
-  .badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
-  }
-
-  .badge {
-    display: inline-block;
-    padding: 0.2rem 0.65rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    color: rgba(255, 255, 255, 0.75);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .badge-bitcoin {
-    background: rgba(247, 147, 26, 0.18);
-    color: #f7931a;
-  }
-
-  .badge-lightning {
-    background: rgba(65, 68, 159, 0.25);
-    color: #8b8eff;
-  }
-
-  .business-website {
-    display: inline-block;
-    margin-top: auto;
-    padding-top: 0.5rem;
-    font-size: 0.85rem;
-    color: #f7931a;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-
-  .business-website:hover {
-    opacity: 0.8;
-  }
-</style>
+  <div style="min-width:0;">
+    <h3 style="margin:0 0 4px 0;">{name}</h3>
+    {truncated && <p style="margin:0 0 6px 0;">{truncated}</p>}
+    <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:4px;">
+      {badges.map((b) => (
+        <span class={`btc-badge ${b === 'holds-bitcoin' ? 'btc-badge-orange' : b === 'lightning' ? 'btc-badge-purple' : 'btc-badge-light'}`}>
+          {b.replace(/-/g, ' ')}
+        </span>
+      ))}
+    </div>
+    {neighborhood && <p style="font-size:12px; color:#5a5a7a; margin:0;">📍 {neighborhood}</p>}
+  </div>
+</a>

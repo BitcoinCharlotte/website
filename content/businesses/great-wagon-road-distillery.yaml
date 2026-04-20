@@ -1,4 +1,4 @@
-name: Great Wagon Road Distillery
+name: "Great Wagon Road Distillery"
 slug: great-wagon-road-distillery
 status: active
 category: physical
@@ -6,12 +6,16 @@ badges:
   - holds-bitcoin
   - lightning
 description: |
-  Oldest Charlotte distillery.
-website: https://gwrdistilling.com
+  Oldest distillery in Charlotte known for their Rua malt whiskey
+website: "http://www.gwrdistilling.com/"
+btcmap_url: "https://btcmap.org/merchant/way:323200639"
 location:
-  neighborhood: Charlotte
+  neighborhood: NoDa
+logo: /images/businesses/great-wagon-road-distillery.jpg
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

@@ -1,123 +1,18 @@
 ---
 interface Props {
   title: string;
-  slug: string;
-  url?: string;
+  url: string;
   type?: string;
   author?: string;
   description?: string;
-  category?: string;
 }
-
-const { title, slug, url, type, author, description = '', category } = Astro.props;
-
-const preview = description.length > 130 ? description.slice(0, 130).trimEnd() + '…' : description;
+const { title, url, type, author, description } = Astro.props;
 ---
-
-<article class="card resource-card">
-  <div class="resource-meta">
-    {type && <span class="resource-type">{type}</span>}
-    {category && <span class="resource-category">{category}</span>}
-  </div>
-
-  <a href={url ?? `/resources/${slug}`} class="resource-link" target={url ? '_blank' : undefined} rel={url ? 'noopener noreferrer' : undefined}>
-    <h3 class="resource-title">{title}</h3>
-  </a>
-
-  {author && <p class="resource-author">By {author}</p>}
-
-  {preview && <p class="resource-desc">{preview}</p>}
-
-  <div class="resource-actions">
-    {url && (
-      <a href={url} class="resource-external" target="_blank" rel="noopener noreferrer">
-        Visit Resource ↗
-      </a>
-    )}
-  </div>
-</article>
-
-<style>
-  .resource-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .resource-meta {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-
-  .resource-type {
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-radius: 999px;
-    background: rgba(247, 147, 26, 0.15);
-    color: #f7931a;
-  }
-
-  .resource-category {
-    display: inline-block;
-    padding: 0.15rem 0.6rem;
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .resource-link {
-    text-decoration: none;
-  }
-
-  .resource-title {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 1.3rem;
-    letter-spacing: 0.02em;
-    color: #fff;
-    margin: 0;
-    transition: color 0.2s ease;
-  }
-
-  .resource-link:hover .resource-title {
-    color: #f7931a;
-  }
-
-  .resource-author {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin: 0;
-    font-style: italic;
-  }
-
-  .resource-desc {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.5;
-    margin: 0.25rem 0 0;
-  }
-
-  .resource-actions {
-    margin-top: auto;
-    padding-top: 0.5rem;
-  }
-
-  .resource-external {
-    font-size: 0.85rem;
-    color: #f7931a;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-  }
-
-  .resource-external:hover {
-    opacity: 0.8;
-  }
-</style>
+<div class="btc-card">
+  <p style="margin:0 0 4px 0;">
+    <a href={url} target="_blank" rel="noopener noreferrer" style="font-weight:600; font-size:15px;">{title}</a>
+  </p>
+  {type && <span class="btc-badge btc-badge-light" style="margin-bottom:6px;">{type}</span>}
+  {author && <p style="font-size:12.5px; color:#999; margin:4px 0 2px 0;">by {author}</p>}
+  {description && <p>{description}</p>}
+</div>

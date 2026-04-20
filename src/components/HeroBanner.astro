@@ -1,125 +1,80 @@
 ---
 interface Props {
-  heading?: string;
-  subheading?: string;
+  title: string;
+  subtitle: string;
+  body?: string;
 }
-
-const {
-  heading = 'Building a Bitcoin-Friendly Charlotte, One Block at a Time',
-  subheading = 'Grassroots Bitcoin adoption in Charlotte, NC',
-} = Astro.props;
+const { title, subtitle, body } = Astro.props;
 ---
-
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <h1>{heading}</h1>
-    <p class="subheading">{subheading}</p>
-    <div class="hero-ctas">
-      <a href="/events" class="btn btn-primary">Upcoming Events</a>
-      <a href="/onboarding-100" class="btn btn-secondary">Accept Bitcoin</a>
-    </div>
-  </div>
+<section class="btc-hero">
+  <svg class="btc-hero-watermark" width="260" height="260" viewBox="0 0 260 260" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <text x="50%" y="55%" dominant-baseline="central" text-anchor="middle" font-family="'Bebas Neue', sans-serif" font-size="220" font-weight="bold" fill="white" opacity="0.07">₿</text>
+  </svg>
+  <h2 class="btc-hero-title">
+    <slot name="title">
+      <Fragment set:html={title} />
+    </slot>
+  </h2>
+  <p class="btc-hero-sub">{subtitle}</p>
+  {body && <p class="btc-hero-body">{body}</p>}
 </section>
 
 <style>
-  .hero {
+  .btc-hero {
     position: relative;
-    min-height: 520px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 1.5rem;
-    background:
-      linear-gradient(135deg, rgba(26, 26, 46, 0.92) 0%, rgba(65, 68, 159, 0.7) 50%, rgba(26, 26, 46, 0.92) 100%),
-      url('/images/bitcoin-charlotte-meetup.jpg') center / cover no-repeat;
     overflow: hidden;
+    background: linear-gradient(135deg, #41449f, #2d2f7a);
+    border-radius: 14px;
+    padding: 3.5rem 2.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
   }
 
-  .hero-overlay {
+  .btc-hero-watermark {
     position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(247, 147, 26, 0.12) 0%, transparent 60%);
+    right: -30px;
+    top: -30px;
+    width: 260px;
+    height: 260px;
     pointer-events: none;
   }
 
-  .hero-content {
+  .btc-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
     position: relative;
     z-index: 1;
-    max-width: 740px;
   }
 
-  h1 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    line-height: 1.08;
-    letter-spacing: 0.02em;
-    color: #fff;
-    margin: 0 0 1rem;
+  .btc-hero-title :global(span) {
+    color: #F7931A;
   }
 
-  .subheading {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0 0 2rem;
-    line-height: 1.5;
-  }
-
-  .hero-ctas {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.85rem 2rem;
-    font-family: 'Bebas Neue', cursive;
+  .btc-hero-sub {
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.15rem;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    opacity: 0.9;
+    margin: 0 0 0.75rem;
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
   }
 
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  .btc-hero-body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    opacity: 0.8;
+    margin: 0;
+    max-width: 640px;
+    position: relative;
+    z-index: 1;
   }
 
-  .btn-primary {
-    background: #f7931a;
-    color: #12121f;
-  }
-
-  .btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-  }
-
-  .btn-secondary:hover {
-    border-color: #f7931a;
-    color: #f7931a;
-  }
-
-  @media (max-width: 480px) {
-    .hero {
-      min-height: 400px;
-      padding: 3rem 1.25rem;
-    }
-
-    .hero-ctas {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn {
-      width: 100%;
-      max-width: 260px;
-      text-align: center;
+  @media (max-width: 768px) {
+    .btc-hero {
+      padding: 2.5rem 1.5rem;
     }
   }
 </style>

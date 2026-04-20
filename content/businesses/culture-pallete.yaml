@@ -1,16 +1,20 @@
-name: Culture Pallete
+name: "Culture Pallete"
 slug: culture-pallete
 status: active
 category: physical
 badges:
   - lightning
 description: |
-  Turkish marbling workshops.
-website: https://theculturepalette.com
+  Turkish marbling (Ebru), hands-on workshops and custom silk products
+website: "https://www.theculturepalette.com/"
+btcmap_url: "https://btcmap.org/merchant/38007"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/culture-pallete.png
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

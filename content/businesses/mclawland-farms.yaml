@@ -1,16 +1,20 @@
-name: McLawland Farms
+name: "McLawland Farms"
 slug: mclawland-farms
 status: active
 category: physical
 badges:
   - lightning
 description: |
-  You-pick farm experience.
-website: https://sites.google.com/view/mclawlandfarms
+  A three season you pick experience farm featuring you pick flowers, blueberries, and figs. We have grown over the past eight years and now also host special events, education classes, yoga, a two season farmers' market, and operate two overnight accommodations on the farm through Airbnb.
+website: "https://sites.google.com/view/mclawlandfarms/home"
+btcmap_url: "https://btcmap.org/merchant/38777"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/mclawland-farms.jpg
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

@@ -5,12 +5,16 @@ category: physical
 badges:
   - lightning
 description: |
-  Custom rug making.
-website: https://safensoundrugs.com
+  Make your own Custom Rug with all materials provided!
+website: "https://safensoundrugs.com/"
+btcmap_url: "https://btcmap.org/merchant/35988"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/safe-and-sound-rugs.jpg
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"

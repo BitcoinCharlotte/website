@@ -1,16 +1,20 @@
-name: Wheatberry Bakeshop
+name: "Wheatberry Bakeshop"
 slug: wheatberry-bakeshop
 status: active
 category: physical
 badges:
   - lightning
 description: |
-  Southern bakeshop.
-website: https://wheatberrybake.shop
+  A small-scale southern bakeshop inspired by the charm of European neighborhood cafes. Our seasonal menu of pastries, breads, and cakes is thoughtfully updated each month to highlight the region.
+website: "https://www.wheatberrybake.shop/"
+btcmap_url: "https://btcmap.org/merchant/36003"
 location:
   neighborhood: Charlotte
+logo: /images/businesses/wheatberry-bakeshop.jpg
 payment_methods:
   - lightning
   - onchain
+bitcoin_only: true
+bitcoin_discount: false
 created: "2026-04-20"
 updated: "2026-04-20"
