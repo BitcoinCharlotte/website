@@ -1,0 +1,410 @@
+[
+  {
+    "name": "The Horseshoe",
+    "slug": "the-horseshoe",
+    "description": "A sports bar in the heart of South End's Gold District, complete with 10 TVs and both indoor and outdoor seating.",
+    "hodlsBitcoin": true,
+    "website": "https://thehorseshoeclt.com/",
+    "btcmap_url": "https://btcmap.org/merchant/36837",
+    "logo": "/images/businesses/the-horseshoe.jpg",
+    "location": {
+      "neighborhood": "South End"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "J&E Obsidian Coffee Co.",
+    "slug": "je-obsidian-coffee-co",
+    "description": "We grow delicious Colombian coffee in the Antioqu\u00eda region, import it and roast it.",
+    "hodlsBitcoin": true,
+    "website": "https://www.jeobsidiancoffee.com/",
+    "btcmap_url": "https://btcmap.org/merchant/35940",
+    "logo": "/images/businesses/je-obsidian-coffee-co.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Great Wagon Road Distillery",
+    "slug": "great-wagon-road-distillery",
+    "description": "Oldest distillery in Charlotte known for their Rua malt whiskey",
+    "hodlsBitcoin": true,
+    "website": "http://www.gwrdistilling.com/",
+    "btcmap_url": "https://btcmap.org/merchant/way:323200639",
+    "logo": "/images/businesses/great-wagon-road-distillery.jpg",
+    "location": {
+      "neighborhood": "NoDa"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Tip Top Daily Market",
+    "slug": "tip-top-daily-market",
+    "description": "Beer Bar, Wine Shop, Snack Place, Grocery Store in the Heart of NoDa.",
+    "hodlsBitcoin": true,
+    "website": "https://tiptop.market/",
+    "btcmap_url": "",
+    "logo": "/images/businesses/tip-top-daily-market.png",
+    "location": {
+      "neighborhood": "NoDa"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Yard Cooked Dishes",
+    "slug": "yard-cooked-dishes",
+    "description": "Homemade Jamaican Dishes",
+    "hodlsBitcoin": true,
+    "website": "https://www.yardcookeddishes.com/",
+    "btcmap_url": "https://btcmap.org/merchant/33974",
+    "logo": "/images/businesses/yard-cooked-dishes.webp",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "onboarded_date": "2026-01-19",
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Johnny Dollars",
+    "slug": "johnny-dollars",
+    "description": "Charlotte's dive bar gem with cheap drinks, pool, live music, and a chill patio",
+    "hodlsBitcoin": true,
+    "website": "https://www.facebook.com/profile.php?id=100063828811605",
+    "btcmap_url": "",
+    "logo": "/images/businesses/johnny-dollars.png",
+    "location": {
+      "neighborhood": "South End"
+    },
+    "badges": [
+      "holds-bitcoin",
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "onboarded_date": "2025-06-13",
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Culture Pallete",
+    "slug": "culture-pallete",
+    "description": "Turkish marbling (Ebru), hands-on workshops and custom silk products",
+    "hodlsBitcoin": false,
+    "website": "https://www.theculturepalette.com/",
+    "btcmap_url": "https://btcmap.org/merchant/38007",
+    "logo": "/images/businesses/culture-pallete.png",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "La Bonbonniere Bakery",
+    "slug": "la-bonbonniere-bakery",
+    "description": "Handmade cookies with a story!",
+    "hodlsBitcoin": false,
+    "website": "https://labonbonnierebakery.com/",
+    "btcmap_url": "https://btcmap.org/merchant/36007",
+    "logo": "/images/businesses/la-bonbonniere-bakery.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Cold Blooded & Bizarre",
+    "slug": "cold-blooded-and-bizarre",
+    "description": "Exotic pet store, oddity shop and reptile rescue!",
+    "hodlsBitcoin": false,
+    "website": "https://www.coldbloodedandbizarre.com/",
+    "btcmap_url": "https://btcmap.org/merchant/33084",
+    "logo": "/images/businesses/cold-blooded-and-bizarre.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "McLawland Farms",
+    "slug": "mclawland-farms",
+    "description": "A three season you pick experience farm featuring you pick flowers, blueberries, and figs. We have grown over the past eight years and now also host special events, education classes, yoga, a two season farmers' market, and operate two overnight accommodations on the farm through Airbnb.",
+    "hodlsBitcoin": false,
+    "website": "https://sites.google.com/view/mclawlandfarms/home",
+    "btcmap_url": "https://btcmap.org/merchant/38777",
+    "logo": "/images/businesses/mclawland-farms.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Wheatberry Bakeshop",
+    "slug": "wheatberry-bakeshop",
+    "description": "A small-scale southern bakeshop inspired by the charm of European neighborhood cafes. Our seasonal menu of pastries, breads, and cakes is thoughtfully updated each month to highlight the region.",
+    "hodlsBitcoin": false,
+    "website": "https://www.wheatberrybake.shop/",
+    "btcmap_url": "https://btcmap.org/merchant/36003",
+    "logo": "/images/businesses/wheatberry-bakeshop.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Two Moons Salon",
+    "slug": "two-moons-salon",
+    "description": "Full service hair and extensions salon in South Park.",
+    "hodlsBitcoin": false,
+    "website": "https://mysite.vagaro.com/twomoonssalondiana",
+    "btcmap_url": "https://btcmap.org/merchant/38788",
+    "logo": "/images/businesses/two-moons-salon.png",
+    "location": {
+      "neighborhood": "South Park"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Safe & Sound Rugs",
+    "slug": "safe-and-sound-rugs",
+    "description": "Make your own Custom Rug with all materials provided!",
+    "hodlsBitcoin": false,
+    "website": "https://safensoundrugs.com/",
+    "btcmap_url": "https://btcmap.org/merchant/35988",
+    "logo": "/images/businesses/safe-and-sound-rugs.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "Gabe's Good Goods",
+    "slug": "gabes-good-goods",
+    "description": "Modernist Furniture, Decor, Clothes, & More. (The store with the unhinged tags)",
+    "hodlsBitcoin": false,
+    "website": "https://www.gabesgoodgoods.com/",
+    "btcmap_url": "https://btcmap.org/merchant/35986",
+    "logo": "/images/businesses/gabes-good-goods.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "The Jugo Man Bar",
+    "slug": "the-jugo-man-bar",
+    "description": "Enjoy A No Junk Just Juice at The Jugo Bar.",
+    "hodlsBitcoin": false,
+    "website": "https://www.thejugobar.com/",
+    "btcmap_url": "https://btcmap.org/merchant/36004",
+    "logo": "/images/businesses/the-jugo-man-bar.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  },
+  {
+    "name": "It's Poppin Kettle Korn",
+    "slug": "its-poppin-kettle-korn",
+    "description": "CLTs Best Gourmet Kettle Korn",
+    "hodlsBitcoin": false,
+    "website": "https://www.itspoppingourmetkettlekorn.com/",
+    "btcmap_url": "https://btcmap.org/merchant/38776",
+    "logo": "/images/businesses/its-poppin-kettle-korn.jpg",
+    "location": {
+      "neighborhood": "Charlotte"
+    },
+    "badges": [
+      "lightning"
+    ],
+    "category": "physical",
+    "status": "active",
+    "bitcoin_only": true,
+    "bitcoin_discount": false,
+    "payment_methods": [
+      "lightning",
+      "onchain"
+    ],
+    "created": "2026-04-20",
+    "updated": "2026-04-20"
+  }
+]

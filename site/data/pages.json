@@ -1,0 +1,17 @@
+[
+  {
+    "title": "About Bitcoin Charlotte",
+    "slug": "about",
+    "status": "published"
+  },
+  {
+    "title": "Support Bitcoin Charlotte",
+    "slug": "community-support",
+    "status": "published"
+  },
+  {
+    "title": "Bitcoin: Everything in 21 Pages",
+    "slug": "bitcoin-21-pages",
+    "status": "published"
+  }
+]

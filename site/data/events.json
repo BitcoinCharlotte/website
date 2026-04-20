@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Saturday Sats Social - 1st Saturday",
+    "slug": "saturday-sats-social-1st-sat",
+    "status": "active",
+    "type": "recurring",
+    "schedule": {
+      "frequency": "monthly",
+      "rule": "1st Saturday of every month",
+      "time": "14:00",
+      "end_time": "16:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "name": "Tip Top Daily Market",
+      "address": "2902 The Plaza, Charlotte, NC",
+      "neighborhood": "NoDa"
+    },
+    "description": "Join fellow Bitcoiners for our 1st Saturday Sats Social at Tip Top Daily Market in NoDa. Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community. All experience levels welcome.",
+    "tags": [
+      "social",
+      "monthly",
+      "noda"
+    ]
+  },
+  {
+    "title": "Saturday Sats Social - 2nd Saturday",
+    "slug": "saturday-sats-social-2nd-sat",
+    "status": "active",
+    "type": "recurring",
+    "schedule": {
+      "frequency": "monthly",
+      "rule": "2nd Saturday of every month",
+      "time": "14:00",
+      "end_time": "16:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "name": "The Horseshoe",
+      "address": "South End, Charlotte, NC",
+      "neighborhood": "South End"
+    },
+    "description": "Join fellow Bitcoiners for our 2nd Saturday Sats Social at The Horseshoe in South End. Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community. All experience levels welcome.",
+    "tags": [
+      "social",
+      "monthly",
+      "south-end"
+    ]
+  },
+  {
+    "title": "Saturday Sats Social - 3rd Saturday",
+    "slug": "saturday-sats-social-3rd-sat",
+    "status": "active",
+    "type": "recurring",
+    "schedule": {
+      "frequency": "monthly",
+      "rule": "3rd Saturday of every month",
+      "time": "14:00",
+      "end_time": "16:00",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "name": "Great Wagon Road Distillery",
+      "address": "610 Anderson St, Charlotte, NC",
+      "neighborhood": "NoDa"
+    },
+    "description": "Join fellow Bitcoiners for our 3rd Saturday Sats Social at Great Wagon Road Distillery in NoDa. Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community. All experience levels welcome.",
+    "tags": [
+      "social",
+      "monthly",
+      "noda"
+    ]
+  },
+  {
+    "title": "Saturday Sats Social - 4th Saturday",
+    "slug": "saturday-sats-social-4th-sat",
+    "status": "active",
+    "type": "recurring",
+    "schedule": {
+      "frequency": "monthly",
+      "rule": "4th Saturday of every month",
+      "time": "13:30",
+      "end_time": "15:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "name": "Johnny Dollars Saloon",
+      "address": "3920 S Tryon St, Charlotte, NC",
+      "neighborhood": "South End"
+    },
+    "description": "Join fellow Bitcoiners for our 4th Saturday Sats Social at Johnny Dollars Saloon in South End. Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community. All experience levels welcome.",
+    "tags": [
+      "social",
+      "monthly",
+      "south-end"
+    ]
+  },
+  {
+    "title": "Socratic Seminar",
+    "slug": "socratic-seminar",
+    "status": "active",
+    "type": "recurring",
+    "schedule": {
+      "frequency": "monthly",
+      "rule": "1st Monday of every month",
+      "time": "18:30",
+      "end_time": "20:30",
+      "timezone": "America/New_York"
+    },
+    "location": {
+      "name": "Great Wagon Road Distilling Company",
+      "address": "610 Anderson St, Charlotte, NC",
+      "neighborhood": "NoDa"
+    },
+    "description": "Our flagship educational event. A lead presenter shares insights on Bitcoin \u2014 resources, news, history, emerging tech, live demos. Sparks lively debates. Beginner friendly!",
+    "tags": [
+      "education",
+      "monthly",
+      "beginner-friendly"
+    ]
+  }
+]

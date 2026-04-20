@@ -1,17 +1,13 @@
 {
   "name": "bitcoin-charlotte-website",
   "description": "Bitcoin Charlotte community website — fully open source, MIT license",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "license": "MIT",
-  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
   },
   "dependencies": {
-    "astro": "^5.0.0",
-    "js-yaml": "^4.1.1"
+    "express": "^4.21.0"
   }
 }

@@ -1,0 +1,60 @@
+{
+  "goal": 100,
+  "count": 9,
+  "businesses": [
+    {
+      "name": "Yard Cooked Dishes",
+      "btcmap": "33974",
+      "nostr": "nevent1qqsgae974j79szkkxat80ytt626fdyrcrsnsncvk0gfyqnkzwmrhe4s7a29ev",
+      "date": "3/9"
+    },
+    {
+      "name": "Safe n Sound Rugs",
+      "btcmap": "35988",
+      "nostr": "nevent1qqszangc7j75y3ruc5m8xgwg750rujeprvsswqf0mlaasdm3qh7pwtg8s4fql",
+      "date": "3/11"
+    },
+    {
+      "name": "Gabe's Good Goods",
+      "btcmap": "35986",
+      "nostr": "nevent1qqsqf58r7k3gtpfmkgyewhlww2chj74uccnmhqhatmmq60dcwxqsc5crx2wan",
+      "date": "3/11"
+    },
+    {
+      "name": "Wheatberry Bakeshop",
+      "btcmap": "36003",
+      "nostr": "nevent1qqsy8rcs84r6zf6ytxrar3pdwxn8223at9cwnqmjzezw0tykth4986gxa0k8q",
+      "date": "3/11"
+    },
+    {
+      "name": "Borinquen Kombucha",
+      "btcmap": "36005",
+      "nostr": "nevent1qqsfskns3h30cufx6eq640e9yrn7q9j4d9dxnfled64a8fzgv23k6ggavxru7",
+      "date": "3/11"
+    },
+    {
+      "name": "La Bonbonniere Bakery",
+      "btcmap": "36009",
+      "nostr": "nevent1qqsr29yge78a9tv3hs8hl9yc7nuwx5h846mqt4a2k3hl4pj6xv4wwfg9wzmzh",
+      "date": "3/12"
+    },
+    {
+      "name": "The Jugo Man Bar",
+      "btcmap": "36004",
+      "nostr": "nevent1qqspjkxn5u4enfws8sh5tuv43shmejgjn6cvll8gsls5g07kk6dxavsnhxecq",
+      "date": "3/13"
+    },
+    {
+      "name": "Cold Blooded and Bizarre",
+      "btcmap": "33084",
+      "nostr": "nevent1qqsd7xxwv9e9ju2sewlcjxam37dp2cjvcy3f4jymeutdwqgg8dmt8vsq05c54",
+      "date": "3/13"
+    },
+    {
+      "name": "Jade & Elise",
+      "btcmap": "35940",
+      "nostr": "nevent1qqsp6z9v4ql43xcl5lsv53m5raww5fuv4gdzv87ljmnz2kwyumn2dpsn72lh9",
+      "date": "3/29"
+    }
+  ]
+}
