@@ -1,0 +1,11 @@
+title: "Unchained"
+slug: unchained
+type: wallet
+url: https://unchained.com
+description: |
+  Collaborative custody multisig vault for securing larger Bitcoin holdings.
+category: wallets-multisig
+difficulty: advanced
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

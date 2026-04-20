@@ -1,0 +1,93 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const evtDir = path.join(process.cwd(), 'content/events');
+const evtFiles = fs.readdirSync(evtDir).filter(f => f.endsWith('.yaml'));
+const allEvents = evtFiles.map(f => {
+  const raw = fs.readFileSync(path.join(evtDir, f), 'utf-8');
+  return yaml.load(raw);
+});
+
+const recurring = allEvents.filter(e => e.type === 'recurring');
+const oneOff = allEvents.filter(e => e.type !== 'recurring');
+---
+
+<Base title="Events | Bitcoin Charlotte">
+  <section class="section">
+    <div class="container">
+      <h1>Bitcoin Charlotte Events</h1>
+      <p class="subtitle">Join us! All events are free and open to everyone.</p>
+      <p class="rsvp-cta">
+        <a href="https://www.meetup.com/bitcoincharlotte/" class="btn btn-primary" target="_blank" rel="noopener">RSVP on Meetup.com →</a>
+      </p>
+
+      <h2>Recurring Events</h2>
+      <div class="events-list">
+        {recurring.map(event => (
+          <div class="event-card">
+            <h3>{event.title}</h3>
+            <div class="event-meta">
+              {event.schedule?.rule && <span class="meta-item">📅 {event.schedule.rule}</span>}
+              {event.schedule?.time && <span class="meta-item">🕐 {event.schedule.time} – {event.schedule.end_time}</span>}
+            </div>
+            <div class="event-meta">
+              <span class="meta-item">📍 {event.location?.name}{event.location?.neighborhood ? ` · ${event.location.neighborhood}` : ''}</span>
+              {event.location?.address && <span class="meta-item address">{event.location.address}</span>}
+            </div>
+            <p class="event-desc">{event.description?.trim()}</p>
+            {event.tags && (
+              <div class="tags">
+                {event.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {oneOff.length > 0 && (
+        <>
+          <h2>Special Events</h2>
+          <div class="events-list">
+            {oneOff.map(event => (
+              <div class="event-card">
+                <h3>{event.title}</h3>
+                <p class="event-desc">{event.description?.trim()}</p>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
+  h2 { font-size: 1.5rem; margin: 2.5rem 0 1rem; border-bottom: 2px solid #f7931a; padding-bottom: 0.5rem; }
+  .subtitle { color: #666; font-size: 1.1rem; }
+  .rsvp-cta { margin: 1.5rem 0; }
+  .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+  .btn-primary { background: #f7931a; color: #fff; }
+  .btn-primary:hover { opacity: 0.85; }
+  .events-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .event-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+  }
+  .event-card h3 { margin: 0 0 0.75rem; }
+  .event-meta { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem; }
+  .meta-item { font-size: 0.9rem; color: #555; }
+  .address { font-style: italic; }
+  .event-desc { margin-top: 0.75rem; line-height: 1.6; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem; }
+  .tag { font-size: 0.75rem; padding: 0.15rem 0.5rem; background: #f0f0f0; border-radius: 999px; color: #666; }
+</style>

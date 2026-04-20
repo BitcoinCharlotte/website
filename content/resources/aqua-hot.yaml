@@ -1,0 +1,12 @@
+title: "Aqua"
+slug: aqua-hot
+type: wallet
+author: Blockstream
+url: https://aquawallet.io
+description: |
+  Simple and clean Bitcoin hot wallet by Blockstream with Lightning support.
+category: wallets-hot
+difficulty: beginner
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

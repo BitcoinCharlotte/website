@@ -1,0 +1,16 @@
+name: McLawland Farms
+slug: mclawland-farms
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  You-pick farm experience.
+website: https://sites.google.com/view/mclawlandfarms
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="Articles | Bitcoin Charlotte">
+  <section class="section">
+    <div class="container">
+      <h1>Articles</h1>
+      <p class="subtitle">Bitcoin Charlotte articles and write-ups. Coming soon!</p>
+
+      <div class="empty-state">
+        <span class="empty-icon">📝</span>
+        <h2>No articles yet</h2>
+        <p>We're working on publishing articles about Bitcoin in Charlotte. Check back soon!</p>
+        <p>In the meantime, explore our <a href="/resources">curated resources</a> to learn more about Bitcoin.</p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
+  .subtitle { color: #666; font-size: 1.1rem; }
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 2rem;
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+  }
+  .empty-icon { font-size: 3rem; }
+  .empty-state h2 { margin-top: 1rem; color: #888; }
+  .empty-state p { color: #666; }
+  .empty-state a { color: #f7931a; }
+</style>

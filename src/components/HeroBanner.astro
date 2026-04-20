@@ -1,0 +1,125 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  heading = 'Building a Bitcoin-Friendly Charlotte, One Block at a Time',
+  subheading = 'Grassroots Bitcoin adoption in Charlotte, NC',
+} = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>{heading}</h1>
+    <p class="subheading">{subheading}</p>
+    <div class="hero-ctas">
+      <a href="/events" class="btn btn-primary">Upcoming Events</a>
+      <a href="/onboarding-100" class="btn btn-secondary">Accept Bitcoin</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background:
+      linear-gradient(135deg, rgba(26, 26, 46, 0.92) 0%, rgba(65, 68, 159, 0.7) 50%, rgba(26, 26, 46, 0.92) 100%),
+      url('/images/bitcoin-charlotte-meetup.jpg') center / cover no-repeat;
+    overflow: hidden;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(247, 147, 26, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 740px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin: 0 0 1rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 2rem;
+    line-height: 1.5;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary {
+    background: #f7931a;
+    color: #12121f;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .btn-secondary:hover {
+    border-color: #f7931a;
+    color: #f7931a;
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      min-height: 400px;
+      padding: 3rem 1.25rem;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn {
+      width: 100%;
+      max-width: 260px;
+      text-align: center;
+    }
+  }
+</style>

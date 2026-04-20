@@ -1,0 +1,16 @@
+name: Two Moons Salon
+slug: two-moons-salon
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Hair and extensions salon in South Park.
+website: https://www.vagaro.com/twomoonssalon
+location:
+  neighborhood: South Park
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

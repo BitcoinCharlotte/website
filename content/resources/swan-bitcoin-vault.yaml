@@ -1,0 +1,11 @@
+title: "Swan Bitcoin"
+slug: swan-bitcoin-vault
+type: wallet
+url: https://swanbitcoin.com/bitcoincharlotte/
+description: |
+  Swan Vault provides multisig custody for securing your Bitcoin savings.
+category: wallets-multisig
+difficulty: advanced
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

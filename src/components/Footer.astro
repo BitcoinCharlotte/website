@@ -1,0 +1,164 @@
+---
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Events', href: '/events' },
+  { label: 'Resources', href: '/resources' },
+  { label: 'Businesses', href: '/businesses' },
+  { label: 'Onboarding 100', href: '/onboarding-100' },
+];
+
+const communityLinks = [
+  { label: 'Meetup', href: 'https://www.meetup.com/bitcoincharlotte/' },
+  { label: 'Telegram', href: 'https://t.me/+0GOZLahvOPhlZmIx' },
+  { label: 'Nostr', href: 'https://primal.net/bitcoincharlotte' },
+];
+
+const socialLinks = [
+  { label: 'X', href: 'https://x.com/Bitcoin_CLT' },
+  { label: 'Instagram', href: 'https://www.instagram.com/bitcoincharlotte/' },
+  { label: 'Facebook', href: 'https://www.facebook.com/BitcoinCLT/' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/bitcoincharlotte' },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="footer-logo">
+        <img src="/images/logo.svg" alt="Bitcoin Charlotte" width="48" height="48" />
+      </a>
+      <p class="tagline">Grassroots Bitcoin adoption in Charlotte, NC</p>
+    </div>
+
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          {navLinks.map(({ label, href }) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Community</h4>
+        <ul>
+          {communityLinks.map(({ label, href }) => (
+            <li><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <ul>
+          {socialLinks.map(({ label, href }) => (
+            <li><a href={href} target="_blank" rel="noopener noreferrer">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>MIT License · Open Source · Paid for with ₿</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #111122;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footer-brand {
+    flex: 1 1 260px;
+  }
+
+  .footer-logo img {
+    max-height: 48px;
+    width: auto;
+    margin-bottom: 0.75rem;
+  }
+
+  .tagline {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 280px;
+  }
+
+  .footer-columns {
+    display: flex;
+    flex: 2 1 400px;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-col {
+    flex: 1 1 140px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    color: #f7931a;
+    margin: 0 0 0.75rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-col li {
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-col a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover {
+    color: #f7931a;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .footer-bottom p {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  @media (max-width: 600px) {
+    .footer-inner {
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .footer-columns {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+</style>

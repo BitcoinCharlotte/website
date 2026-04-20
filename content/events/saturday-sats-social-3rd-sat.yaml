@@ -1,0 +1,24 @@
+title: "Saturday Sats Social - 3rd Saturday"
+slug: saturday-sats-social-3rd-sat
+status: active
+type: recurring
+schedule:
+  frequency: monthly
+  rule: "3rd Saturday of every month"
+  time: "14:00"
+  end_time: "16:00"
+  timezone: America/New_York
+location:
+  name: Great Wagon Road Distillery
+  address: "610 Anderson St, Charlotte, NC"
+  neighborhood: NoDa
+description: |
+  Join fellow Bitcoiners for our 3rd Saturday Sats Social at Great Wagon Road Distillery in NoDa.
+  Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community.
+  All experience levels welcome.
+tags:
+  - social
+  - monthly
+  - noda
+created: "2026-04-20"
+updated: "2026-04-20"

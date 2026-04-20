@@ -1,0 +1,17 @@
+name: "J&E Obsidian Coffee Co."
+slug: je-obsidian-coffee-co
+status: active
+category: physical
+badges:
+  - holds-bitcoin
+  - lightning
+description: |
+  Colombian coffee roaster.
+website: https://jeobsidiancoffee.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

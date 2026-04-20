@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+const bizDir = path.join(process.cwd(), 'content/businesses');
+const bizFiles = fs.readdirSync(bizDir).filter(f => f.endsWith('.yaml'));
+const businesses = bizFiles.map(f => {
+  const raw = fs.readFileSync(path.join(bizDir, f), 'utf-8');
+  return yaml.load(raw);
+}).sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Base title="Bitcoin Businesses in Charlotte | Bitcoin Charlotte">
+  <section class="section">
+    <div class="container">
+      <h1>Bitcoin Businesses in Charlotte</h1>
+      <p class="subtitle">{businesses.length} businesses accepting Bitcoin in the Queen City</p>
+
+      <div class="business-grid">
+        {businesses.map(biz => (
+          <a href={`/businesses/${biz.slug}`} class="business-card">
+            <h3>{biz.name}</h3>
+            <p class="biz-desc">{biz.description?.trim()}</p>
+            <div class="biz-meta">
+              <div class="biz-badges">
+                {biz.badges?.map(badge => (
+                  <span class={`badge badge-${badge}`}>{badge}</span>
+                ))}
+              </div>
+              <span class="biz-neighborhood">📍 {biz.location?.neighborhood}</span>
+            </div>
+            <div class="biz-payments">
+              {biz.payment_methods?.map(pm => (
+                <span class="payment-method">{pm === 'lightning' ? '⚡' : '🔗'} {pm}</span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  h1 { font-size: 2.25rem; margin-bottom: 0.25rem; }
+  .subtitle { color: #666; font-size: 1.1rem; margin-bottom: 2rem; }
+  .business-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .business-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+  }
+  .business-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .business-card h3 { margin: 0 0 0.5rem; }
+  .biz-desc { font-size: 0.95rem; color: #444; margin: 0 0 0.75rem; }
+  .biz-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .biz-badges { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .badge { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 999px; font-weight: 600; text-transform: uppercase; }
+  .badge-holds-bitcoin { background: #fff3e0; color: #f7931a; }
+  .badge-lightning { background: #e8f5e9; color: #2e7d32; }
+  .biz-neighborhood { font-size: 0.85rem; color: #888; }
+  .biz-payments { display: flex; gap: 0.75rem; margin-top: 0.75rem; }
+  .payment-method { font-size: 0.8rem; color: #666; }
+</style>

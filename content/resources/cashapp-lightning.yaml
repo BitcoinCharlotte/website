@@ -1,0 +1,11 @@
+title: "CashApp"
+slug: cashapp-lightning
+type: wallet
+url: https://cash.app
+description: |
+  Send and receive Bitcoin over the Lightning Network with CashApp.
+category: wallets-lightning
+difficulty: beginner
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

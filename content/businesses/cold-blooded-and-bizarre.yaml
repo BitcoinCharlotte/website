@@ -1,0 +1,16 @@
+name: "Cold Blooded & Bizarre"
+slug: cold-blooded-and-bizarre
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Exotic pet store.
+website: https://coldbloodedandbizarre.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

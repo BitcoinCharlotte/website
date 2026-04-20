@@ -1,0 +1,16 @@
+name: "Gabe's Good Goods"
+slug: gabes-good-goods
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Furniture, decor, and clothes.
+website: https://gabesgoodgoods.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

@@ -1,0 +1,16 @@
+name: The Jugo Man Bar
+slug: the-jugo-man-bar
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Juice bar.
+website: https://thejugobar.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

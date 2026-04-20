@@ -1,0 +1,109 @@
+---
+import Base from '../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+export function getStaticPaths() {
+  const bizDir = path.join(process.cwd(), 'content/businesses');
+  const bizFiles = fs.readdirSync(bizDir).filter(f => f.endsWith('.yaml'));
+  return bizFiles.map(f => {
+    const raw = fs.readFileSync(path.join(bizDir, f), 'utf-8');
+    const biz = yaml.load(raw);
+    return { params: { slug: biz.slug }, props: { biz } };
+  });
+}
+
+const { biz } = Astro.props;
+---
+
+<Base title={`${biz.name} | Bitcoin Charlotte`}>
+  <section class="section">
+    <div class="container">
+      <a href="/businesses" class="back-link">← All Businesses</a>
+
+      <h1>{biz.name}</h1>
+
+      <div class="biz-badges">
+        {biz.badges?.map(badge => (
+          <span class={`badge badge-${badge}`}>{badge}</span>
+        ))}
+        <span class={`badge badge-${biz.status}`}>{biz.status}</span>
+      </div>
+
+      <div class="biz-detail">
+        <div class="biz-main">
+          <p class="biz-description">{biz.description?.trim()}</p>
+
+          {biz.location && (
+            <div class="detail-block">
+              <h3>📍 Location</h3>
+              <p>
+                {biz.location.address && <span>{biz.location.address}<br /></span>}
+                {biz.location.neighborhood}
+              </p>
+            </div>
+          )}
+
+          {biz.payment_methods && (
+            <div class="detail-block">
+              <h3>💳 Payment Methods</h3>
+              <div class="payment-list">
+                {biz.payment_methods.map(pm => (
+                  <span class="payment-chip">{pm === 'lightning' ? '⚡' : '🔗'} {pm}</span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div class="biz-sidebar">
+          <div class="detail-block">
+            <h3>Links</h3>
+            {biz.website && (
+              <a href={biz.website} class="link-btn" target="_blank" rel="noopener">🌐 Website</a>
+            )}
+            <a href={`https://btcmap.org/merchant/${biz.slug}`} class="link-btn" target="_blank" rel="noopener">🗺️ View on BTC Map</a>
+          </div>
+
+          <div class="detail-block">
+            <h3>Category</h3>
+            <p>{biz.category}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 900px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 2rem 1rem; }
+  .back-link { color: #f7931a; text-decoration: none; font-size: 0.9rem; }
+  .back-link:hover { text-decoration: underline; }
+  h1 { font-size: 2.25rem; margin: 1rem 0 0.75rem; }
+  .biz-badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+  .badge { font-size: 0.8rem; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 600; text-transform: uppercase; }
+  .badge-holds-bitcoin { background: #fff3e0; color: #f7931a; }
+  .badge-lightning { background: #e8f5e9; color: #2e7d32; }
+  .badge-active { background: #e8f5e9; color: #2e7d32; }
+  .biz-detail { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+  @media (max-width: 700px) { .biz-detail { grid-template-columns: 1fr; } }
+  .biz-description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 2rem; }
+  .detail-block { margin-bottom: 1.5rem; }
+  .detail-block h3 { font-size: 1rem; margin-bottom: 0.5rem; color: #333; }
+  .payment-list { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .payment-chip { font-size: 0.85rem; padding: 0.3rem 0.75rem; background: #f5f5f5; border-radius: 999px; }
+  .link-btn {
+    display: block;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+  .link-btn:hover { background: #f5f5f5; }
+</style>

@@ -1,0 +1,11 @@
+title: "Electrum"
+slug: electrum-multisig
+type: wallet
+url: https://electrum.org
+description: |
+  Lightweight Bitcoin wallet with robust multisig support since 2011.
+category: wallets-multisig
+difficulty: advanced
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

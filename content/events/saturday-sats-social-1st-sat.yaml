@@ -1,0 +1,24 @@
+title: "Saturday Sats Social - 1st Saturday"
+slug: saturday-sats-social-1st-sat
+status: active
+type: recurring
+schedule:
+  frequency: monthly
+  rule: "1st Saturday of every month"
+  time: "14:00"
+  end_time: "16:00"
+  timezone: America/New_York
+location:
+  name: Tip Top Daily Market
+  address: "2902 The Plaza, Charlotte, NC"
+  neighborhood: NoDa
+description: |
+  Join fellow Bitcoiners for our 1st Saturday Sats Social at Tip Top Daily Market in NoDa.
+  Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community.
+  All experience levels welcome.
+tags:
+  - social
+  - monthly
+  - noda
+created: "2026-04-20"
+updated: "2026-04-20"

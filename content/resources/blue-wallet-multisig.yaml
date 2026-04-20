@@ -1,0 +1,11 @@
+title: "Blue Wallet"
+slug: blue-wallet-multisig
+type: wallet
+url: https://bluewallet.io
+description: |
+  Mobile Bitcoin wallet with multisig vault support.
+category: wallets-multisig
+difficulty: intermediate
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

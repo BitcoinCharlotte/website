@@ -1,0 +1,11 @@
+title: "Aqua"
+slug: aqua-lightning
+type: wallet
+url: https://aquawallet.io
+description: |
+  Bitcoin and Lightning wallet by Blockstream with a simple, clean interface.
+category: wallets-lightning
+difficulty: beginner
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

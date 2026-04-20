@@ -1,0 +1,16 @@
+name: "It's Poppin Kettle Korn"
+slug: its-poppin-kettle-korn
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Gourmet kettle corn.
+website: https://itspoppingourmetkettlekorn.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

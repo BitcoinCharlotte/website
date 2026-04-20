@@ -1,0 +1,16 @@
+name: Culture Pallete
+slug: culture-pallete
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Turkish marbling workshops.
+website: https://theculturepalette.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

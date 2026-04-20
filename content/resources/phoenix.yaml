@@ -1,0 +1,11 @@
+title: "Phoenix"
+slug: phoenix
+type: wallet
+url: https://phoenix.acinq.co
+description: |
+  Non-custodial Lightning wallet with automatic channel management.
+category: wallets-lightning
+difficulty: intermediate
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

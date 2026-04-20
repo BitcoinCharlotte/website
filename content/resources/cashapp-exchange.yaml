@@ -1,0 +1,11 @@
+title: "CashApp"
+slug: cashapp-exchange
+type: exchange
+url: https://cash.app
+description: |
+  Buy and sell Bitcoin easily through CashApp with Lightning Network support.
+category: wallets-exchanges
+difficulty: beginner
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

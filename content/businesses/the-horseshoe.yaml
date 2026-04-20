@@ -1,0 +1,17 @@
+name: The Horseshoe
+slug: the-horseshoe
+status: active
+category: physical
+badges:
+  - holds-bitcoin
+  - lightning
+description: |
+  Sports bar in South End's Gold District.
+website: https://thehorseshoeclt.com
+location:
+  neighborhood: South End
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

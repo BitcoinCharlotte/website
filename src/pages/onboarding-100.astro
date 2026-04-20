@@ -1,0 +1,325 @@
+---
+import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+// Load businesses to show onboarded ones
+const bizDir = path.join(process.cwd(), 'content/businesses');
+const bizFiles = fs.readdirSync(bizDir).filter(f => f.endsWith('.yaml'));
+const allBusinesses = bizFiles.map(f => {
+  const raw = fs.readFileSync(path.join(bizDir, f), 'utf-8');
+  return yaml.load(raw);
+}).sort((a, b) => a.name.localeCompare(b.name));
+
+const onboardedCount = allBusinesses.length;
+const goalCount = 100;
+const progressPct = Math.round((onboardedCount / goalCount) * 100);
+
+// Payment solutions for merchants
+const paymentSolutions = [
+  { name: 'BTCPay Server', desc: 'Self-hosted, open-source payment processor. No fees.', url: 'https://btcpayserver.org' },
+  { name: 'Breez POS', desc: 'Point-of-sale Lightning app. Simple and instant.', url: 'https://breez.technology' },
+  { name: 'Strike', desc: 'Lightning payments with instant USD conversion.', url: 'https://strike.me' },
+  { name: 'CashApp', desc: 'Already have CashApp? You can accept Bitcoin today.', url: 'https://cash.app' },
+];
+---
+
+<Base title="Onboarding 100 — Bitcoin Charlotte's Merchant Adoption Initiative">
+  <!-- Hero -->
+  <section class="ob-hero">
+    <div class="container">
+      <h1>Onboarding 100 🎯</h1>
+      <p class="hero-sub">Our mission: onboard <strong>100 Charlotte businesses</strong> to accept Bitcoin payments.</p>
+
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" style={`width: ${progressPct}%`}>
+            <span class="progress-text">{onboardedCount}%</span>
+          </div>
+        </div>
+        <p class="progress-label"><strong>{onboardedCount}</strong> of <strong>{goalCount}</strong> businesses onboarded</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It Matters -->
+  <section class="section">
+    <div class="container">
+      <h2>Why It Matters</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">🔄</span>
+          <h3>Circular Economy</h3>
+          <p>When businesses accept Bitcoin, you can earn and spend sats locally — building a real circular Bitcoin economy in Charlotte.</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">💰</span>
+          <h3>Lower Fees</h3>
+          <p>Bitcoin payments — especially Lightning — have near-zero fees compared to credit card processing (2-3%).</p>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🌍</span>
+          <h3>Financial Freedom</h3>
+          <p>No chargebacks, no bank holds, no permission needed. Businesses control their own money.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onboarded Businesses -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Onboarded Businesses ✅</h2>
+      <p class="section-sub">These Charlotte businesses now accept Bitcoin. Support them!</p>
+      <div class="onboarded-grid">
+        {allBusinesses.map(biz => (
+          <a href={`/businesses/${biz.slug}`} class="onboarded-card">
+            <h3>{biz.name}</h3>
+            <p class="ob-desc">{biz.description?.trim()}</p>
+            <div class="ob-meta">
+              <span class="ob-neighborhood">📍 {biz.location?.neighborhood}</span>
+              <div class="ob-badges">
+                {biz.payment_methods?.map(pm => (
+                  <span class="ob-pm">{pm === 'lightning' ? '⚡' : '🔗'} {pm}</span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Earn Sats -->
+  <section class="section">
+    <div class="container">
+      <h2>How to Earn Sats 🏆</h2>
+      <p>Help us onboard businesses and earn Bitcoin rewards!</p>
+      <div class="earn-list">
+        <div class="earn-item">
+          <span class="earn-amount">5,000 sats</span>
+          <span class="earn-action">Refer a business that signs up for a consultation</span>
+        </div>
+        <div class="earn-item">
+          <span class="earn-amount">10,000 sats</span>
+          <span class="earn-action">Refer a business that starts accepting Bitcoin</span>
+        </div>
+        <div class="earn-item">
+          <span class="earn-amount">21,000 sats</span>
+          <span class="earn-action">Personally help onboard a business (setup + training)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Onboard -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2>How to Onboard a Business 🛠️</h2>
+      <p>Getting a business to accept Bitcoin is easier than you think. Here's the playbook:</p>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <div>
+            <h3>Start the Conversation</h3>
+            <p>Ask "Do you accept Bitcoin?" at your favorite local spot. Share why it matters — lower fees, no chargebacks, growing community.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <div>
+            <h3>Choose a Payment Solution</h3>
+            <p>Help them pick the right tool based on their needs.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <div>
+            <h3>Set Up & Test</h3>
+            <p>Walk them through setup. Make a real purchase to test it. Take a photo!</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">4</span>
+          <div>
+            <h3>Report Back</h3>
+            <p>Let us know so we can add them to BTC Map and our directory.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem;">Payment Solutions for Merchants</h3>
+      <div class="solutions-grid">
+        {paymentSolutions.map(sol => (
+          <a href={sol.url} class="solution-card" target="_blank" rel="noopener">
+            <h4>{sol.name}</h4>
+            <p>{sol.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section cta-section">
+    <div class="container" style="text-align: center;">
+      <h2>Ready to Help? 🤙</h2>
+      <p>Whether you're a business owner interested in accepting Bitcoin, or a community member who wants to help onboard, reach out!</p>
+      <a href="mailto:hodl@bitcoincharlotte.org" class="btn btn-primary btn-lg">hodl@bitcoincharlotte.org</a>
+      <p class="cta-sub">Or come to any of our <a href="/events">meetups</a> and talk to us in person.</p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  .section-alt { background: #fafafa; }
+  .section-sub { color: #666; margin-bottom: 1.5rem; }
+
+  .ob-hero {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #fff;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  .ob-hero h1 { font-size: 2.75rem; margin-bottom: 0.5rem; }
+  .hero-sub { font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem; }
+
+  .progress-section { max-width: 600px; margin: 0 auto; }
+  .progress-bar {
+    background: rgba(255,255,255,0.15);
+    border-radius: 999px;
+    height: 36px;
+    overflow: hidden;
+    position: relative;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #f7931a, #ffc107);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    transition: width 0.8s ease;
+  }
+  .progress-text { font-weight: 700; font-size: 0.9rem; }
+  .progress-label { margin-top: 0.75rem; font-size: 1rem; opacity: 0.9; }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .why-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    background: #fff;
+    text-align: center;
+  }
+  .why-icon { font-size: 2rem; }
+  .why-card h3 { margin: 0.75rem 0 0.5rem; }
+
+  .onboarded-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .onboarded-card {
+    border: 1px solid #e0e0e0;
+    border-left: 4px solid #f7931a;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.2s;
+  }
+  .onboarded-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .onboarded-card h3 { margin: 0 0 0.25rem; font-size: 1rem; }
+  .ob-desc { font-size: 0.9rem; color: #555; margin: 0 0 0.5rem; }
+  .ob-meta { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+  .ob-neighborhood { font-size: 0.8rem; color: #888; }
+  .ob-badges { display: flex; gap: 0.5rem; }
+  .ob-pm { font-size: 0.75rem; color: #666; }
+
+  .earn-list { margin-top: 1.5rem; }
+  .earn-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    background: #fff;
+  }
+  .earn-amount {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f7931a;
+    white-space: nowrap;
+    min-width: 110px;
+  }
+  .earn-action { font-size: 0.95rem; }
+
+  .steps { margin-top: 1.5rem; }
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #f7931a;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .step h3 { margin: 0 0 0.25rem; }
+  .step p { margin: 0; color: #555; }
+
+  .solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .solution-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .solution-card:hover { border-color: #f7931a; }
+  .solution-card h4 { margin: 0 0 0.5rem; }
+  .solution-card p { font-size: 0.9rem; color: #555; margin: 0; }
+
+  .cta-section {
+    background: linear-gradient(135deg, #f7931a, #e8850f);
+    color: #fff;
+    padding: 4rem 1rem;
+  }
+  .cta-section h2 { font-size: 2rem; }
+  .cta-section p { font-size: 1.1rem; max-width: 600px; margin: 0.75rem auto; }
+  .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600; }
+  .btn-primary { background: #fff; color: #f7931a; }
+  .btn-lg { font-size: 1.2rem; padding: 1rem 2rem; margin: 1rem 0; }
+  .cta-sub { font-size: 0.95rem; opacity: 0.9; margin-top: 1rem !important; }
+  .cta-sub a { color: #fff; text-decoration: underline; }
+</style>

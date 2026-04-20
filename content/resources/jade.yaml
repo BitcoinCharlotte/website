@@ -1,0 +1,12 @@
+title: "Jade"
+slug: jade
+type: hardware
+author: Blockstream
+url: https://blockstream.com/jade/
+description: |
+  Affordable open-source hardware wallet by Blockstream with air-gapped support.
+category: wallets-hardware
+difficulty: intermediate
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

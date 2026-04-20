@@ -1,0 +1,17 @@
+name: Johnny Dollars
+slug: johnny-dollars
+status: active
+category: physical
+badges:
+  - holds-bitcoin
+  - lightning
+description: |
+  Dive bar. Started accepting Bitcoin on 6/13/2025.
+website: https://www.facebook.com/johnnydollarsclt
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"

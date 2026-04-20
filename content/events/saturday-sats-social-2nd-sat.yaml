@@ -1,0 +1,24 @@
+title: "Saturday Sats Social - 2nd Saturday"
+slug: saturday-sats-social-2nd-sat
+status: active
+type: recurring
+schedule:
+  frequency: monthly
+  rule: "2nd Saturday of every month"
+  time: "14:00"
+  end_time: "16:00"
+  timezone: America/New_York
+location:
+  name: The Horseshoe
+  address: "South End, Charlotte, NC"
+  neighborhood: South End
+description: |
+  Join fellow Bitcoiners for our 2nd Saturday Sats Social at The Horseshoe in South End.
+  Grab a drink, stack some sats, and connect with the Charlotte Bitcoin community.
+  All experience levels welcome.
+tags:
+  - social
+  - monthly
+  - south-end
+created: "2026-04-20"
+updated: "2026-04-20"

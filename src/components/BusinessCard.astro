@@ -1,0 +1,121 @@
+---
+interface Props {
+  name: string;
+  slug: string;
+  description?: string;
+  badges?: string[];
+  website?: string;
+  location?: string;
+  hodlsBitcoin?: boolean;
+}
+
+const { name, slug, description = '', badges = [], website, location, hodlsBitcoin = false } = Astro.props;
+
+const truncated = description.length > 120 ? description.slice(0, 120).trimEnd() + '…' : description;
+---
+
+<article class="card business-card">
+  <a href={`/businesses/${slug}`} class="card-link">
+    <h3 class="business-name">{name}</h3>
+  </a>
+
+  {location && <p class="business-location">📍 {location}</p>}
+
+  {truncated && <p class="business-desc">{truncated}</p>}
+
+  <div class="badges">
+    {hodlsBitcoin && <span class="badge badge-bitcoin">Holds Bitcoin</span>}
+    {badges.map((badge) => (
+      <span class:list={['badge', { 'badge-lightning': badge.toLowerCase().includes('lightning') }]}>
+        {badge}
+      </span>
+    ))}
+  </div>
+
+  {website && (
+    <a href={website} class="business-website" target="_blank" rel="noopener noreferrer">
+      Visit Website ↗
+    </a>
+  )}
+</article>
+
+<style>
+  .business-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-link {
+    text-decoration: none;
+  }
+
+  .business-name {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin: 0;
+    transition: color 0.2s ease;
+  }
+
+  .card-link:hover .business-name {
+    color: #f7931a;
+  }
+
+  .business-location {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+  }
+
+  .business-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin: 0.25rem 0 0;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .badge-bitcoin {
+    background: rgba(247, 147, 26, 0.18);
+    color: #f7931a;
+  }
+
+  .badge-lightning {
+    background: rgba(65, 68, 159, 0.25);
+    color: #8b8eff;
+  }
+
+  .business-website {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #f7931a;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .business-website:hover {
+    opacity: 0.8;
+  }
+</style>

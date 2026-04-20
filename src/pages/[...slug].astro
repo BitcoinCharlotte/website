@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'js-yaml';
+
+export function getStaticPaths() {
+  const pagesDir = path.join(process.cwd(), 'content/pages');
+  const pageFiles = fs.readdirSync(pagesDir).filter(f => f.endsWith('.yaml'));
+  return pageFiles.map(f => {
+    const raw = fs.readFileSync(path.join(pagesDir, f), 'utf-8');
+    const page = yaml.load(raw);
+    const slug = page.slug || f.replace('.yaml', '');
+    return { params: { slug }, props: { page } };
+  });
+}
+
+const { page } = Astro.props;
+
+// Simple markdown-to-HTML: headings, bold, links, paragraphs
+function simpleMarkdown(text: string): string {
+  if (!text) return '';
+  return text
+    .split('\n\n')
+    .map(block => {
+      block = block.trim();
+      if (!block) return '';
+      // Headings
+      if (block.startsWith('## ')) return `<h2>${block.slice(3)}</h2>`;
+      if (block.startsWith('### ')) return `<h3>${block.slice(4)}</h3>`;
+      // List items
+      if (block.match(/^- /m)) {
+        const items = block.split('\n').filter(l => l.startsWith('- ')).map(l => {
+          let content = l.slice(2);
+          content = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+          content = content.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+          return `<li>${content}</li>`;
+        }).join('');
+        return `<ul>${items}</ul>`;
+      }
+      // Paragraph
+      block = block.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      block = block.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>');
+      return `<p>${block}</p>`;
+    })
+    .join('\n');
+}
+
+const bodyHtml = simpleMarkdown(page.body || '');
+---
+
+<Base title={`${page.title} | Bitcoin Charlotte`}>
+  <section class="section">
+    <div class="container">
+      <article class="page-content" set:html={bodyHtml} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container { max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+  .section { padding: 3rem 1rem; }
+  .page-content h2 { font-size: 1.75rem; margin: 2rem 0 1rem; }
+  .page-content h3 { font-size: 1.35rem; margin: 1.5rem 0 0.75rem; }
+  .page-content p { line-height: 1.7; margin-bottom: 1rem; }
+  .page-content ul { margin: 1rem 0; padding-left: 1.5rem; }
+  .page-content li { margin-bottom: 0.5rem; line-height: 1.6; }
+  .page-content a { color: #f7931a; text-decoration: underline; }
+  .page-content strong { font-weight: 700; }
+</style>

@@ -1,0 +1,11 @@
+title: "Muun"
+slug: muun-lightning
+type: wallet
+url: https://muun.com
+description: |
+  Self-custodial Bitcoin wallet with built-in Lightning Network support.
+category: wallets-lightning
+difficulty: beginner
+featured: false
+created: "2026-04-20"
+updated: "2026-04-20"

@@ -1,0 +1,16 @@
+name: "Safe & Sound Rugs"
+slug: safe-and-sound-rugs
+status: active
+category: physical
+badges:
+  - lightning
+description: |
+  Custom rug making.
+website: https://safensoundrugs.com
+location:
+  neighborhood: Charlotte
+payment_methods:
+  - lightning
+  - onchain
+created: "2026-04-20"
+updated: "2026-04-20"
