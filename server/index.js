@@ -155,6 +155,7 @@ const pageRoutes = [
   { path: '/businesses',        file: 'businesses.html',      title: 'Businesses' },
   { path: '/articles',          file: 'articles.html',        title: 'Articles' },
   { path: '/onboarding-100',    file: 'onboarding-100.html',  title: 'Onboarding 100' },
+  { path: '/business/onboarding-100-initiative', file: 'onboarding-100.html', title: 'Onboarding 100 Businesses', activePath: '/onboarding-100' },
   { path: '/about',             file: 'about.html',           title: 'About' },
   { path: '/community-support', file: 'community-support.html', title: 'Community Support' },
   { path: '/bitcoin-21-pages',  file: 'bitcoin-21-pages.html', title: 'Bitcoin 21 Pages' },
@@ -163,7 +164,7 @@ const pageRoutes = [
 pageRoutes.forEach(route => {
   app.get(route.path, (req, res) => {
     const html = readPage(route.file);
-    res.send(renderPage(route.title, html, route.path));
+    res.send(renderPage(route.title, html, route.activePath || route.path));
   });
 });
 

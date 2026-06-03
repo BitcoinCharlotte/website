@@ -31,7 +31,7 @@ body { font-family: 'DM Sans', sans-serif; background: #ffffff; color: #1a1a2e; 
 .btc-progress-sub strong { color: #41449f; }
 
 /* ===== Onboarded List ===== */
-.btc-onboarded-list { list-style: none; padding: 0; margin: 14px 0 0 0; border: 1px solid #e2e2ee; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; }
+.btc-onboarded-list { list-style: none; padding: 0; margin: 14px 0 0 0; border: 1px solid #e2e2ee; border-radius: 8px; max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; }
 .btc-onboarded-item { display: flex; align-items: center; gap: 10px; background: #fff; padding: 7px 10px; border-bottom: 1px solid #e2e2ee; }
 .btc-onboarded-item:last-child { border-bottom: none; }
 .btc-onboarded-item p { margin: 0 !important; padding: 0 !important; display: contents; }
